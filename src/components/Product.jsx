@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 
 import data from '../data';
 
-const Product = ({ setCart }) => {
+const Product = ({ cart, setCart }) => {
     let [quantity, setQuantity] = useState(0);
+    let [displayAdded, setDisplayAdded] = useState(false);
 
     let { name } = useParams();
     let product = data.find(item => item.name === name);
@@ -35,9 +36,35 @@ const Product = ({ setCart }) => {
     };
 
     const addToCart = () => {
-        setCart(previousCart => {
-            return [...previousCart, { name: product.description, quantity, price: product.price * quantity }];
-        })
+        // check if item is already in cart
+        if(cart.filter(cartItem => cartItem.name === product.description).length > 0) {
+            setCart(previousCart => {
+                setDisplayAdded(true);
+                let amountToAdd = quantity;
+                let updatedCart = cart.map(cartItem => {
+                    let updatedQuantity = cartItem.quantity + quantity;
+                    return cartItem.name === product.description ?
+                    Object.assign(
+                        {},
+                        cartItem,
+                        {
+                            quantity: updatedQuantity,
+                            price: product.price * updatedQuantity
+                        })
+                    : cartItem;
+                });
+                return updatedCart;
+            });
+        }
+        else {
+            setCart(previousCart => {
+                setDisplayAdded(true);
+                return [
+                    ...previousCart,
+                    { name: product.description, quantity, price: product.price * quantity, image: product.image }
+                ];
+            });
+        }
     };
 
     return (
@@ -56,6 +83,7 @@ const Product = ({ setCart }) => {
                     <input type="text" value={quantity} onChange={onChange} className="product__quantity"></input>
                     <button className="product__increment" onClick={onIncrement}>+</button>
                     <button className="product__add" onClick={addToCart}>Add to Cart</button>
+                    {displayAdded && <p>Product added to cart</p>}
                 </div>
             </section>
         </>

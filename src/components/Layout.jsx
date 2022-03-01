@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
             <Header />
             <Routes>
                 <Route path="/" element={<ProductList products={products} />} />
-                <Route path="/product/:name" element={<Product setCart={setCart} />} />
+                <Route path="/product/:name" element={<Product cart={cart} setCart={setCart} />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
             </Routes>
