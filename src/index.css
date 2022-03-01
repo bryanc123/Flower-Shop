@@ -209,6 +209,40 @@ header ul a:hover {
   width: 100%;
 }
 
+/* Cart */
+
+.cart {
+  min-height: 80vh;
+}
+
+.cart__item {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+
+.cart__total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.cart-container {
+  background-color: white;
+  margin: 20px;
+  padding: 20px 20px 40px 20px;
+  text-align: left;
+  width: 50%;
+}
+.cart-container h2 {
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+}
+.cart-container span {
+  font-size: 1.2rem;
+}
+
 /* Footer */
 
 footer {

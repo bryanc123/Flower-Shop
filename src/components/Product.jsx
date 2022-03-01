@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import data from '../data';
 
-const Product = () => {
+const Product = ({ setCart }) => {
     let [quantity, setQuantity] = useState(0);
 
     let { name } = useParams();
@@ -34,6 +34,12 @@ const Product = () => {
         setQuantity(event.target.value);
     };
 
+    const addToCart = () => {
+        setCart(previousCart => {
+            return [...previousCart, { name: product.description, quantity, price: product.price * quantity }];
+        })
+    };
+
     return (
         <>
             <section className="product-container">
@@ -49,7 +55,7 @@ const Product = () => {
                     <button className="product__decrement" onClick={onDecrement}>-</button>
                     <input type="text" value={quantity} onChange={onChange} className="product__quantity"></input>
                     <button className="product__increment" onClick={onIncrement}>+</button>
-                    <button className="product__add">Add to Cart</button>
+                    <button className="product__add" onClick={addToCart}>Add to Cart</button>
                 </div>
             </section>
         </>
