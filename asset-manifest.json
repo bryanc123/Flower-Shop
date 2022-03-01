@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Flower-Shop/static/css/main.f8851e24.css",
+    "main.js": "/Flower-Shop/static/js/main.b4d8834d.js",
+    "index.html": "/Flower-Shop/index.html",
+    "main.f8851e24.css.map": "/Flower-Shop/static/css/main.f8851e24.css.map",
+    "main.b4d8834d.js.map": "/Flower-Shop/static/js/main.b4d8834d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8851e24.css",
+    "static/js/main.b4d8834d.js"
+  ]
+}
