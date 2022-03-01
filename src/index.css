@@ -114,10 +114,61 @@ header ul a:hover {
   text-align: left;
 }
 .product__description-container h2 {
+  font-size: 2rem;
   margin: 0 0 20px 0;
 }
 .product__description-container p {
-  margin: 0;
+  font-size: 1.2rem;
+  margin: 0 0 20px 0;
+}
+.product__description-container span {
+  font-size: 1.2rem;
+  margin: 0 10px 20px 0;
+}
+
+.product__decrement {
+  background-color: #228B22;
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 10px;
+  padding: 5px 10px;
+}
+.product__decrement:hover {
+  background-color: #4EA24E;
+  cursor: pointer;
+}
+
+.product__quantity {
+  font-size: 1.2rem;
+  height: 28px;
+  padding-left: 5px;
+  width: 60px;
+}
+
+.product__increment {
+  background-color: #228B22;
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  padding: 5px 10px;
+}
+.product__increment:hover {
+  background-color: #4EA24E;
+  cursor: pointer;
+}
+
+.product__add {
+  background-color: #228B22;
+  border-radius: 10px;
+  color: white;
+  display: block;
+  font-size: 1.5rem;
+  margin: 40px 0;
+  padding: 20px;
+}
+.product__add:hover {
+  background-color: #4EA24E;
+  cursor: pointer;
 }
 
 /* About */
