@@ -1,4 +1,4 @@
-const data = [
+export const data = [
     {
         name: "roses",
         description: "Roses",
@@ -48,4 +48,29 @@ const data = [
     }
 ];
 
-export default data;
+export const ratings = [
+    {
+        name: "roses",
+        ratings: [5, 4, 5, 5, 4, 5, 5, 4, 5, 4, 4, 5, 5, 5, 4, 4]
+    },
+    {
+        name: "daffodils",
+        ratings: [5, 4, 5, 5, 4, 5, 5, 4, 3, 5]
+    },
+    {
+        name: "tulips",
+        ratings: [5, 2, 5, 2, 4, 3, 3]
+    },
+    {
+        name: "lilies",
+        ratings: [5, 4, 5, 2]
+    },
+    {
+        name: "daisies",
+        ratings: [5, 4, 5, 5, 4, 4]
+    },
+    {
+        name: "carnations",
+        ratings: [5, 4, 5, 5, 4, 3, 5]
+    }
+]

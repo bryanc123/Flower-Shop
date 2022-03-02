@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import data from '../data';
+import { data } from '../data';
 
 const Product = ({ cart, setCart, setCartUpdated }) => {
     let [quantity, setQuantity] = useState(1);

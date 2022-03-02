@@ -149,6 +149,25 @@ header {
   text-align: left;
 }
 
+.products__sort {
+  margin-left: 20px;
+  text-align: left;
+}
+
+.products__sort button {
+  background-color: #228B22;
+  border-radius: 10px;
+  color: white;
+  display: inline-block;
+  font-size: 1rem;
+  margin-right: 5px;
+  padding: 10px;
+}
+.products__sort button:hover {
+  background-color: #4EA24E;
+  cursor: pointer;
+}
+
 .products__gallery {
   display: flex;
   flex-direction: column;

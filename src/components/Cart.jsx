@@ -27,7 +27,7 @@ const Cart = ({ cart, setCart, cartUpdated, setCartUpdated }) => {
 
     let cartItems;
     if(cart.length === 0) {
-        cartItems = <p>No items yet</p>;
+        cartItems = <p>No items</p>;
     }
     else {
         cartItems = cart.map(cartItem => (
