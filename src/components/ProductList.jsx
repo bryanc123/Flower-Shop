@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 import { ratings as ratingsData } from '../data';
 
+import SortButton from './SortButton';
+
 const ProductList = ({ products, setProducts }) => {
+
+    const [sortBy, setSortBy] = useState("");
 
     const ratings = products.map(product => {
         let _ratings = ratingsData.find(ratedProduct => ratedProduct.name === product.name).ratings;
@@ -18,6 +22,8 @@ const ProductList = ({ products, setProducts }) => {
     });
 
     const sortProductsByName = () => {
+        setSortBy("name");
+
         setProducts(previousProducts => {
             return [...previousProducts].sort((a, b) => {
                 if(a.name < b.name) { return -1; }
@@ -27,6 +33,8 @@ const ProductList = ({ products, setProducts }) => {
     };
 
     const sortProductsByPrice = () => {
+        setSortBy("price");
+
         setProducts(previousProducts => {
             return [...previousProducts].sort((a, b) => {
                 if(a.price < b.price) { return -1; }
@@ -37,6 +45,8 @@ const ProductList = ({ products, setProducts }) => {
     };
 
     const sortProductsByRating = () => {
+        setSortBy("rating");
+
         setProducts(previousProducts => {
             return [...previousProducts].sort((a, b) => {
                 let ratingA = ratings.find(score => score.name === a.name).rating;
@@ -72,9 +82,9 @@ const ProductList = ({ products, setProducts }) => {
                 <p className="products__intro">Choose from our fine selection of flowers</p>
                 <div className="products__sort">
                     <span>Sort by: </span>
-                    <button onClick={sortProductsByName} className="products__sort-by-name">Name</button>
-                    <button onClick={sortProductsByPrice} className="products__sort-by-name">Price</button>
-                    <button onClick={sortProductsByRating} className="products__sort-by-rating">Rating</button>
+                    <SortButton handleSort={sortProductsByName} isActive={sortBy === "name"}>Name</SortButton>
+                    <SortButton handleSort={sortProductsByPrice} isActive={sortBy === "price"}>Price</SortButton>
+                    <SortButton handleSort={sortProductsByRating} isActive={sortBy === "rating"}>Rating</SortButton>
                 </div>
                 <div className="products__gallery">
                 {productContainers}
