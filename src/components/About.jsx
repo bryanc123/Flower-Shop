@@ -1,7 +1,7 @@
 const About = () => {
     return (
         <section className="about">
-            <div className="about-container">
+            <div className="about__container">
                 <img src="images/bouquet.jpg" alt="Bouquet" className="about__image" />
                 <h2 className="about__heading">
                     <span className="about__heading--fragment-one">Personalize </span>

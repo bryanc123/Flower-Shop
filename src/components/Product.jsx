@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 
 import data from '../data';
 
-const Product = ({ cart, setCart }) => {
-    let [quantity, setQuantity] = useState(0);
-    let [displayAdded, setDisplayAdded] = useState(false);
+const Product = ({ cart, setCart, setCartUpdated }) => {
+    let [quantity, setQuantity] = useState(1);
+    let [productAdded, setProductAdded] = useState(false);
 
     let { name } = useParams();
     let product = data.find(item => item.name === name);
@@ -13,11 +13,11 @@ const Product = ({ cart, setCart }) => {
 
     const onDecrement = (event) => {
         setQuantity(previousQuantity => {
-            if(previousQuantity > 0) {
+            if(previousQuantity > 1) {
                 return previousQuantity - 1;
             }
 
-            return 0;
+            return 1;
         })
     }
 
@@ -36,11 +36,10 @@ const Product = ({ cart, setCart }) => {
     };
 
     const addToCart = () => {
-        // check if item is already in cart
         if(cart.filter(cartItem => cartItem.name === product.description).length > 0) {
+            setCartUpdated(true);
             setCart(previousCart => {
-                setDisplayAdded(true);
-                let amountToAdd = quantity;
+                setProductAdded(true);
                 let updatedCart = cart.map(cartItem => {
                     let updatedQuantity = cartItem.quantity + quantity;
                     return cartItem.name === product.description ?
@@ -57,8 +56,9 @@ const Product = ({ cart, setCart }) => {
             });
         }
         else {
+            setCartUpdated(true);
             setCart(previousCart => {
-                setDisplayAdded(true);
+                setProductAdded(true);
                 return [
                     ...previousCart,
                     { name: product.description, quantity, price: product.price * quantity, image: product.image }
@@ -68,8 +68,8 @@ const Product = ({ cart, setCart }) => {
     };
 
     return (
-        <>
-            <section className="product-container">
+        <section className="product">
+            <div className="product-container">
                 <div className="product__images-container">
                     <img src={`images/${name}.jpg`} alt="Tulips" className="product__image" />
                     <p>{photographer}</p>
@@ -83,10 +83,10 @@ const Product = ({ cart, setCart }) => {
                     <input type="text" value={quantity} onChange={onChange} className="product__quantity"></input>
                     <button className="product__increment" onClick={onIncrement}>+</button>
                     <button className="product__add" onClick={addToCart}>Add to Cart</button>
-                    {displayAdded && <p>Product added to cart</p>}
+                    {productAdded && <p>Product added to cart</p>}
                 </div>
-            </section>
-        </>
+            </div>
+        </section>
     );
 }
 

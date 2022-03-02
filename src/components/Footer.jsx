@@ -1,6 +1,6 @@
-const Footer = () => {
-    return (
-        <footer>
+const Footer = () => (
+    <footer>
+        <div className="footer-container">
             <div className="footer__section">
                 <h2>Links</h2>
                 <ul>
@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="footer__section">
                 <h2>Other Projects</h2>
                 <ul>
-                    <li><a href="https://bryanc123.github.io/Employee-Records-Angular/">Employee Records Angular App</a></li>
+                    <li><a href="https://bryanc123.github.io/Employee-Records-Angular/">User Records Angular App</a></li>
                     <li><a href="https://bryanc123.github.io/Mobile-First-Design/">Mobile First Design</a></li>
                     <li><a href="https://bryanc123.github.io/Quiz-Game/">Quiz Game</a></li>
                 </ul>
@@ -23,8 +23,8 @@ const Footer = () => {
                     <li><strong>E-mail:</strong> cayanan.bryanau@gmail.com</li>
                 </ul>
             </div>
-        </footer>
-    );
-};
+        </div>
+    </footer>
+);
 
 export default Footer;
