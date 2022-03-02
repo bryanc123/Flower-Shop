@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { data } from '../data';
+import { data, ratings as ratingsData } from '../data';
 
 const Product = ({ cart, setCart, setCartUpdated }) => {
     let [quantity, setQuantity] = useState(1);
@@ -10,6 +10,11 @@ const Product = ({ cart, setCart, setCartUpdated }) => {
     let { name } = useParams();
     let product = data.find(item => item.name === name);
     let photographer = product.photographer ? `Photo by ${product.photographer}` : '';
+
+    let ratingData = ratingsData.find(rating => rating.name === product.name);
+    let numberOfRatings = ratingData.ratings.length;
+    let rating = ratingData.ratings.reduce((previous, current) => { return previous + current }) / numberOfRatings;
+    rating = Math.round(rating * 10) / 10;
 
     const onDecrement = (event) => {
         setQuantity(previousQuantity => {
@@ -77,6 +82,7 @@ const Product = ({ cart, setCart, setCartUpdated }) => {
                 <div className="product__description-container">
                     <h2>{product.description}</h2>
                     <p>Price: ${product.price}</p>
+                    <p>Rating: {rating} / 5 ({numberOfRatings} ratings)</p>
                     <p>In Stock: {product.quantity}</p>
                     <span>Quantity:</span>
                     <button className="product__decrement" onClick={onDecrement}>-</button>
