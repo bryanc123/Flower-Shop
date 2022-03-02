@@ -5,7 +5,7 @@ import { HashRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/" hashType="slash">
       <div className="App">
         <Layout />
       </div>

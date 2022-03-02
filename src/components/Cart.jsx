@@ -33,7 +33,7 @@ const Cart = ({ cart, setCart, cartUpdated, setCartUpdated }) => {
         cartItems = cart.map(cartItem => (
             <div className="cart__item" key={cartItem.name}>
                 <div className="cart__item-image-container">
-                    <img src={cartItem.image} alt="cartItem.name" className="cart__item-image" />
+                    <img src={cartItem.image} alt={cartItem.name} className="cart__item-image" />
                 </div>
                 <span className="cart__item-description">{cartItem.name} X {cartItem.quantity} </span>
                 <button className="cart__item-remove" onClick={() => { removeFromCart(cartItem.name); }}>Remove</button>
