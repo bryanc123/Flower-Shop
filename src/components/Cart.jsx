@@ -44,7 +44,7 @@ const Cart = ({ cart, setCart, cartUpdated, setCartUpdated }) => {
 
     return (
         <section className="cart">
-            <div className="cart-container">
+            <div className="cart__container">
                 <h2>Items in Your Cart</h2>
                 {cartItems}
                 <div className="cart__total">
