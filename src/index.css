@@ -292,25 +292,36 @@ header {
 /* About */
 
 .about__container {
+  margin: 20px auto;
+  max-width: 1300px;
+}
+
+.about__image-overlay-container {
   font-family: 'Dancing Script';
   font-size: 1rem;
   margin: 20px auto;
-  max-width: 1300px;
   position: relative;
   width: 90%;
 }
-.about__container h2 {
-  font-size: 1.2em;
+.about__image-overlay-container h2 {
+  font-size: 1.5em;
   position: absolute;
   left: 20px;
-  top: -10px;
+  top: 0px;
 }
-.about__container p {
-  color: white;
-  font-size: 0.5em;
-  left: 20px;
-  position: absolute;
-  top: 30px;
+
+.about__image-credit {
+  font-size: 1rem;
+}
+
+.about__text-container {
+  background: #E4E0E4;
+  margin: 20px;
+  padding: 20px;
+  text-align: left;
+}
+.about__text-container ul {
+  margin-left: 20px;
 }
 
 .about__heading--fragment-one {
@@ -516,19 +527,26 @@ footer {
   /* About */
 
   .about__container {
+    display: flex;
+  }
+
+  .about__image-container {
+    width: 60%;
+  }
+
+  .about__text-container {
+    width: 40%;
+  }
+
+  .about__image-overlay-container {
     font-size: 1.5rem;
     position: relative;
     width: 90%;
   }
-  .about__container h2 {
-    font-size: 1.2em;
+  .about__image-overlay-container h2 {
+    font-size: 1em;
     left: 20px;
-    top: -10px;
-  }
-  .about__container p {
-    font-size: 0.7em;
-    left: 20px;
-    top: 40px;
+    top: 0px;
   }
 
 }
@@ -546,20 +564,15 @@ footer {
 
   /* About */
 
-  .about__container {
+  .about__image-overlay-container {
     font-size: 2rem;
     position: relative;
     width: 90%;
   }
-  .about__container h2 {
-    font-size: 1.2em;
+  .about__image-overlay-container h2 {
+    font-size: 1em;
     left: 20px;
     top: -10px;
-  }
-  .about__container p {
-    font-size: 0.7em;
-    left: 40px;
-    top: 60px;
   }
   
   /* Footer */
@@ -610,20 +623,15 @@ footer {
 
   /* About */
 
-  .about__container {
+  .about__image-overlay-container {
     font-size: 2rem;
     position: relative;
     width: 90%;
   }
-  .about__container h2 {
+  .about__image-overlay-container h2 {
     font-size: 1.5em;
-    left: 20px;
+    left: 40px;
     top: -10px;
-  }
-  .about__container p {
-    font-size: 1em;
-    left: 60px;
-    top: 80px;
   }
 
 }
