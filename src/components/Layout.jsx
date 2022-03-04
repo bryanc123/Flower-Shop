@@ -10,8 +10,7 @@ import MobileMenu from './MobileMenu';
 import { Routes, Route } from 'react-router-dom';
 import { data } from "../data.js";
 
-const Layout = ({ children }) => {
-    const [products, setProducts] = useState(data);
+const Layout = () => {
     const [cart, setCart] = useState([]);
     const [cartUpdated, setCartUpdated] = useState(false);
 
@@ -20,7 +19,7 @@ const Layout = ({ children }) => {
             <MobileMenu />
             <Header cartUpdated={cartUpdated} />
             <Routes>
-                <Route path="/" element={<ProductList products={products} setProducts={setProducts} />} />
+                <Route path="/" element={<ProductList />} />
                 <Route path="/product/:name" element={<Product cart={cart} setCart={setCart} setCartUpdated={setCartUpdated} />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/cart" element={<Cart cart={cart} setCart={setCart} cartUpdated={cartUpdated} setCartUpdated={setCartUpdated} />} />

@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
 
-import { ratings as ratingsData } from '../data';
+import { data, ratings as ratingsData } from '../data';
 import { useEffect } from 'react';
 
-const ProductList = ({ products, setProducts }) => {
+const ProductList = () => {
 
+    const [products, setProducts] = useState(data);
     const [sortBy, setSortBy] = useState({ label: "", value: "" });
 
     const ratings = products.map(product => {
