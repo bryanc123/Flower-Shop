@@ -146,6 +146,7 @@ const ProductList = ({ products, setProducts }) => {
                     <span>Sort:</span>
                     <Select
                         defaultValue={sortBy}
+                        isSearchable={false}
                         onChange={setSortBy}
                         options={sortOptions}
                         styles={selectStyles}
