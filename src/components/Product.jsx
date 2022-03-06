@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { data, ratings as ratingsData } from '../data';
@@ -15,6 +15,8 @@ const Product = ({ cart, setCart, setCartUpdated }) => {
     let numberOfRatings = ratingData.ratings.length;
     let rating = ratingData.ratings.reduce((previous, current) => { return previous + current }) / numberOfRatings;
     rating = Math.round(rating * 10) / 10;
+
+    const [error, setError] = useState("");
 
     const onDecrement = (event) => {
         setQuantity(previousQuantity => {
@@ -40,13 +42,35 @@ const Product = ({ cart, setCart, setCartUpdated }) => {
         setQuantity(event.target.value);
     };
 
+    const validateQuantity = () => {
+        let inputQuantity = parseInt(quantity);
+        if(!Number.isInteger(inputQuantity)) {
+            return "Quantity entered must be a whole number";
+        }
+        if(inputQuantity <= 0) {
+            return "Quantity entered must be at least 1";
+        }
+        if(inputQuantity > product.quantity) {
+            return "Quantity entered cannot be greater than available stock";
+        }
+    }
+
     const addToCart = () => {
+        setProductAdded(false);
+        setError("");
+
+        let inputError = validateQuantity();
+        if(inputError) {
+            setError(inputError);
+            return;
+        }
+
         if(cart.filter(cartItem => cartItem.name === product.description).length > 0) {
             setCartUpdated(true);
             setCart(previousCart => {
                 setProductAdded(true);
                 let updatedCart = cart.map(cartItem => {
-                    let updatedQuantity = cartItem.quantity + quantity;
+                    let updatedQuantity = cartItem.quantity + parseInt(quantity);
                     return cartItem.name === product.description ?
                     Object.assign(
                         {},
@@ -89,6 +113,7 @@ const Product = ({ cart, setCart, setCartUpdated }) => {
                     <input type="text" value={quantity} onChange={onChange} className="product__quantity"></input>
                     <button className="product__increment" onClick={onIncrement}>+</button>
                     <button className="product__add" onClick={addToCart}>Add to Cart</button>
+                    {error && <div className="product__error-message">{error}</div>}
                     {productAdded && <div className="product__added-message">Product added to cart</div>}
                 </div>
             </div>
