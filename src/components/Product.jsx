@@ -13,6 +13,7 @@ const Product = () => {
     const [error, setError] = useState("");
 
     const cart = useSelector((state) => state.cart.items);
+    const showRecommended = useSelector((state) => state.settings.showRecommended);
     const dispatch = useDispatch();
 
     let { name } = useParams();
@@ -152,12 +153,15 @@ const Product = () => {
                         {productAdded && <div className="product__added-message">Product added to cart</div>}
                     </div>
                 </div>
-                <div className="recommended-products">
+                {
+                    showRecommended && 
+                    <div className="recommended-products">
                     <h2>Recommended Products</h2>
                     <div className="recommended-products__row">
                         {recommendedProducts}
                     </div>
                 </div>
+                }
             </div>
         </section>
     );
