@@ -234,20 +234,22 @@ header {
 }
 
 .recommended-products__row {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
 }
-
 .recommended-products__row a {
   color: black;
   text-decoration: none;
 }
 
 .recommended-product {
-  min-width: 25%;
+  background-color: #B1CCB1;
   padding: 20px;
   text-align: center;
+}
+.recommended-product p {
+  margin: 0;
 }
 
 .recommended-product__image {
