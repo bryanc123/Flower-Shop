@@ -1,11 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { addToCart, updateProductQuantity, setCartUpdated } from '../features/cart/cartSlice';
 
 import { data, ratings as ratingsData } from '../data';
 
-const Product = ({ cart, setCart, setCartUpdated }) => {
+const Product = () => {
     let [quantity, setQuantity] = useState(1);
     let [productAdded, setProductAdded] = useState(false);
+    const [error, setError] = useState("");
+
+    const cart = useSelector((state) => state.cart.items);
+    const dispatch = useDispatch();
 
     let { name } = useParams();
     let product = data.find(item => item.name === name);
@@ -15,8 +22,6 @@ const Product = ({ cart, setCart, setCartUpdated }) => {
     let numberOfRatings = ratingData.ratings.length;
     let rating = ratingData.ratings.reduce((previous, current) => { return previous + current }) / numberOfRatings;
     rating = Math.round(rating * 10) / 10;
-
-    const [error, setError] = useState("");
 
     const onDecrement = (event) => {
         setQuantity(previousQuantity => {
@@ -55,7 +60,7 @@ const Product = ({ cart, setCart, setCartUpdated }) => {
         }
     }
 
-    const addToCart = () => {
+    const add = () => {
         setProductAdded(false);
         setError("");
 
@@ -65,35 +70,28 @@ const Product = ({ cart, setCart, setCartUpdated }) => {
             return;
         }
 
-        if(cart.filter(cartItem => cartItem.name === product.description).length > 0) {
-            setCartUpdated(true);
-            setCart(previousCart => {
-                setProductAdded(true);
-                let updatedCart = cart.map(cartItem => {
-                    let updatedQuantity = cartItem.quantity + parseInt(quantity);
-                    return cartItem.name === product.description ?
-                    Object.assign(
-                        {},
-                        cartItem,
-                        {
-                            quantity: updatedQuantity,
-                            price: product.price * updatedQuantity
-                        })
-                    : cartItem;
-                });
-                return updatedCart;
-            });
+        setProductAdded(true);
+        let alreadyInCart = false;
+        cart.forEach(item => {
+            if(name === item.name) {
+                alreadyInCart = true;
+            }
+        });
+        if(alreadyInCart) {
+            dispatch(updateProductQuantity({
+                name,
+                quantity
+            }));
+        } else {
+            dispatch(addToCart({
+                name: product.name,
+                description: product.description,
+                quantity: quantity,
+                price: product.price * quantity,
+                image: product.image
+            }));
         }
-        else {
-            setCartUpdated(true);
-            setCart(previousCart => {
-                setProductAdded(true);
-                return [
-                    ...previousCart,
-                    { name: product.description, quantity, price: product.price * quantity, image: product.image }
-                ];
-            });
-        }
+        dispatch(setCartUpdated(true));
     };
 
     return (
@@ -112,7 +110,8 @@ const Product = ({ cart, setCart, setCartUpdated }) => {
                     <button className="product__decrement" onClick={onDecrement}>-</button>
                     <input type="text" value={quantity} onChange={onChange} className="product__quantity"></input>
                     <button className="product__increment" onClick={onIncrement}>+</button>
-                    <button className="product__add" onClick={addToCart}>Add to Cart</button>
+                    {/* <button className="product__add" onClick={addToCart}>Add to Cart</button> */}
+                    <button className="product__add" onClick={add}>Add to Cart</button>
                     {error && <div className="product__error-message">{error}</div>}
                     {productAdded && <div className="product__added-message">Product added to cart</div>}
                 </div>

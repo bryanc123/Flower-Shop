@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 
-const Header = ({ cartUpdated }) => {
+import { useSelector } from 'react-redux';
+
+const Header = () => {
 
     const openMobileMenu = () => {
         document.querySelector(".mobile-menu").style.width = "100%";
     };
+
+    const cartUpdated = useSelector((state) => state.cart.updated);
 
     return (
         <header>
@@ -16,7 +20,7 @@ const Header = ({ cartUpdated }) => {
                         <li><Link to="/about">About</Link></li>
                         <li>
                             <Link to="/cart">Cart</Link>
-                            { cartUpdated && <span class="badge">!</span> }
+                            { cartUpdated && <span className="badge">!</span> }
                         </li>
                     </ul>
                 </nav>
