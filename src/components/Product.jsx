@@ -118,7 +118,7 @@ const Product = () => {
         return (
             <div className="recommended-product" key={product.name}>
                 <Link to={`/product/${product.name}`}>
-                    <img src={`images/${name}.jpg`} alt={product.description} className="recommended-product__image" />
+                    <img src={`images/${product.name}.jpg`} alt={product.description} className="recommended-product__image" />
                 </Link>
                 <Link to={`/product/${product.name}`}>
                     <h3>{product.description}</h3>
