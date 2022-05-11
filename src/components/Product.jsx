@@ -82,7 +82,8 @@ const Product = () => {
         if(alreadyInCart) {
             dispatch(updateProductQuantity({
                 name,
-                quantity
+                quantity,
+                price: product.price * quantity
             }));
         } else {
             dispatch(addToCart({
@@ -111,7 +112,6 @@ const Product = () => {
             numberOfRatings
         });
         if(recommendedProducts.length === 3) {
-            console.log(recommendedProducts);
             break;
         }
     }

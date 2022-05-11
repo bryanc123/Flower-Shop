@@ -218,7 +218,7 @@ header {
 }
 
 .product__purchase-container {
-  align-items: center;
+  align-items: flex-start;
   background-color: #B1CCB1;
   display: flex;
   flex-direction: column;

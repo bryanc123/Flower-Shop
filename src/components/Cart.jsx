@@ -13,7 +13,7 @@ const Cart = () => {
     });
 
     useEffect(() => {
-        setTotal(cart.reduce((totalPrice, cartItem) => totalPrice + (cartItem.price * cartItem.quantity), 0).toFixed(2));
+        setTotal(cart.reduce((totalPrice, cartItem) => totalPrice + cartItem.price, 0).toFixed(2));
     }, [cart]);
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const Cart = () => {
                 </div>
                 <span className="cart__item-description">{cartItem.description} X {cartItem.quantity} </span>
                 <button className="cart__item-remove" onClick={() => dispatch(removeFromCart(cartItem.name))}>Remove</button>
-                <span className="cart__item-price">${(cartItem.price * cartItem.quantity).toFixed(2)}</span>
+                <span className="cart__item-price">${cartItem.price.toFixed(2)}</span>
             </div>
         ));
     }
