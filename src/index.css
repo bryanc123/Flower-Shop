@@ -183,24 +183,27 @@ header {
 .products__gallery {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
   padding-bottom: 40px;
 }
 
-.product-card {
+.product__card {
+  background-color: #B1CCB1;
+  margin-bottom: 40px;
   padding: 20px;
 }
-.product-card h3 {
+.product__card h3 {
   margin: 0;
 }
-.product-card a {
+.product__card a {
   color: black;
   text-decoration: none;
 }
-.product-card p {
+.product__card p {
   margin: 0;
 }
 
-.product-card__image {
+.product__card--image {
   width: 100%;
 }
 

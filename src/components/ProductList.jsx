@@ -85,9 +85,9 @@ const ProductList = () => {
         let productRating = ratings.find(score => score.name === product.name);
 
         return (
-            <div className="product-card" key={product.name}>
+            <div className="product__card" key={product.name}>
                 <Link to={`/product/${product.name}`}>
-                    <img src={product.image} alt={product.description} className="product-card__image" />
+                    <img src={product.image} alt={product.description} className="product__card--image" />
                 </Link>
                 <Link to={`/product/${product.name}`}>
                     <h3>{product.description}</h3>
