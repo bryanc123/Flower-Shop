@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -25,8 +25,11 @@ const Product = () => {
     let rating = ratingData.ratings.reduce((previous, current) => { return previous + current }) / numberOfRatings;
     rating = Math.round(rating * 10) / 10;
 
+    const [subtotal, setSubtotal] = useState(product.price);
+
     const onDecrement = (event) => {
         setQuantity(previousQuantity => {
+            previousQuantity = parseInt(previousQuantity);
             if(previousQuantity > 1) {
                 return previousQuantity - 1;
             }
@@ -37,6 +40,7 @@ const Product = () => {
 
     const onIncrement = (event) => {
         setQuantity(previousQuantity => {
+            previousQuantity = parseInt(previousQuantity);
             if(previousQuantity < product.quantity) {
                 return previousQuantity + 1;
             }
@@ -48,6 +52,10 @@ const Product = () => {
     const onChange = (event) => {
         setQuantity(event.target.value);
     };
+
+    useEffect(() => {
+        setSubtotal(quantity * product.price);
+    }, [quantity]);
 
     const validateQuantity = () => {
         let inputQuantity = parseInt(quantity);
@@ -141,9 +149,10 @@ const Product = () => {
                     </div>
                     <div className="product__description-container">
                         <h2>{product.description}</h2>
-                        <p>Price: ${product.price}</p>
+                        <p>Price: ${Number.parseFloat(product.price).toFixed(2)}</p>
                         <p>Rating: {rating} / 5 ({numberOfRatings} ratings)</p>
                         <p>In Stock: {product.quantity}</p>
+                        <p className="product__subtotal">Subtotal: ${Number.parseFloat(subtotal).toFixed(2)}</p>
                         <span>Quantity:</span>
                         <button className="product__decrement" onClick={onDecrement}>-</button>
                         <input type="text" value={quantity} onChange={onChange} className="product__quantity"></input>
