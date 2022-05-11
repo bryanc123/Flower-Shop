@@ -221,7 +221,7 @@ header {
 }
 
 .product__purchase-container {
-  align-items: flex-start;
+  align-items: center;
   background-color: #B1CCB1;
   display: flex;
   flex-direction: column;
@@ -546,6 +546,7 @@ footer {
   /* Single Product */
 
   .product__purchase-container {
+    align-items: flex-start;
     flex-direction: row;
   }
 
