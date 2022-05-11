@@ -3,7 +3,7 @@ export const data = [
         name: "roses",
         description: "Roses",
         quantity: 54,
-        price: 16.52,
+        price: 2.53,
         image: "images/roses.jpg",
         photographer: "Marko Milivojevic"
     },
@@ -11,7 +11,7 @@ export const data = [
         name: "daffodils",
         description: "Daffodils",
         quantity: 108,
-        price: 16.43,
+        price: 2.41,
         image: "images/daffodils.jpg",
         photographer: "Couleur"
     },
@@ -19,7 +19,7 @@ export const data = [
         name: "tulips",
         description: "Tulips",
         quantity: 98,
-        price: 12.58,
+        price: 1.23,
         image: "images/tulips.jpg",
         photographer: "Marko Milivojevic"
     },
@@ -27,14 +27,14 @@ export const data = [
         name: "lilies",
         description: "Lilies",
         quantity: 81,
-        price: 14.54,
+        price: 1.65,
         image: "images/lilies.jpg"
     },
     {
         name: "daisies",
         description: "Daisies",
         quantity: 45,
-        price: 16.31,
+        price: 2.27,
         image: "images/daisies.jpg",
         photographer: "Zhang Kaiyv"
     },
@@ -42,7 +42,7 @@ export const data = [
         name: "carnations",
         description: "Carnations",
         quantity: 87,
-        price: 16.21,
+        price: 2.25,
         image: "images/carnations.jpg",
         photographer: "Bicanski"
     }
