@@ -122,6 +122,7 @@ const Product = () => {
 
     const resetForm = () => {
         setQuantity(1);
+        setProductAdded(false);
         setError("");
     }
 
