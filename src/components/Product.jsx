@@ -120,6 +120,11 @@ const Product = () => {
         dispatch(setCartUpdated(true));
     };
 
+    const resetForm = () => {
+        setQuantity(1);
+        setError("");
+    }
+
     let recommendedProducts = [];
     for(let i = 0; i < data.length; i++) {
         if(data[i].name === name) {
@@ -141,7 +146,7 @@ const Product = () => {
     recommendedProducts = recommendedProducts.map(product => {
         return (
             <div className="recommended-product" key={product.name}>
-                <Link to={`/product/${product.name}`}>
+                <Link to={`/product/${product.name}`} onClick={() => resetForm()}>
                     <img src={`images/${product.name}.jpg`} alt={product.description} className="recommended-product__image" />
                 </Link>
                 <Link to={`/product/${product.name}`}>
