@@ -25,8 +25,6 @@ const Product = () => {
     let rating = ratingData.ratings.reduce((previous, current) => { return previous + current }) / numberOfRatings;
     rating = Math.round(rating * 10) / 10;
 
-    const [subtotal, setSubtotal] = useState(product.price);
-
     const onDecrement = (event) => {
         setQuantity(previousQuantity => {
             previousQuantity = parseInt(previousQuantity);
@@ -62,15 +60,6 @@ const Product = () => {
     const onChange = (event) => {
         setQuantity(event.target.value);
     };
-
-    useEffect(() => {
-        if(!isNaN(quantity * product.price)) {
-            setSubtotal(quantity * product.price);
-        }
-        else {
-            setSubtotal(0);
-        }
-    }, [quantity]);
 
     const validateQuantity = () => {
         let inputQuantity = parseInt(quantity);
@@ -173,7 +162,13 @@ const Product = () => {
                         <p>Price: ${Number.parseFloat(product.price).toFixed(2)}</p>
                         <p>Rating: {rating} / 5 ({numberOfRatings} ratings)</p>
                         <p>In Stock: {product.quantity}</p>
-                        <p className="product__subtotal">Subtotal: ${Number.parseFloat(subtotal).toFixed(2)}</p>
+                        <p className="product__subtotal">
+                            Subtotal: ${
+                                !isNaN(Number.parseFloat(quantity * product.price)) ?
+                                    Number.parseFloat(quantity * product.price).toFixed(2) :
+                                    Number.parseFloat(0).toFixed(2)
+                            }
+                        </p>
                         <span>Quantity:</span>
                         <button className="product__decrement" onClick={onDecrement}>-</button>
                         <input type="text" value={quantity} onChange={onChange} className="product__quantity"></input>
