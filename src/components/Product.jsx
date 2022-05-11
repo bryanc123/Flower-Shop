@@ -30,6 +30,11 @@ const Product = () => {
     const onDecrement = (event) => {
         setQuantity(previousQuantity => {
             previousQuantity = parseInt(previousQuantity);
+
+            if(isNaN(previousQuantity)) {
+                return;
+            }
+            
             if(previousQuantity > 1) {
                 return previousQuantity - 1;
             }
@@ -41,6 +46,11 @@ const Product = () => {
     const onIncrement = (event) => {
         setQuantity(previousQuantity => {
             previousQuantity = parseInt(previousQuantity);
+
+            if(isNaN(previousQuantity)) {
+                return;
+            }
+
             if(previousQuantity < product.quantity) {
                 return previousQuantity + 1;
             }
@@ -54,7 +64,12 @@ const Product = () => {
     };
 
     useEffect(() => {
-        setSubtotal(quantity * product.price);
+        if(!isNaN(quantity * product.price)) {
+            setSubtotal(quantity * product.price);
+        }
+        else {
+            setSubtotal(0);
+        }
     }, [quantity]);
 
     const validateQuantity = () => {
