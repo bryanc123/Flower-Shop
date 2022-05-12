@@ -4,11 +4,13 @@
   "private": true,
   "homepage": "https://bryanc123.github.io/Flower-Shop",
   "dependencies": {
+    "@apollo/client": "^3.6.2",
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^14.1.1",
     "gh-pages": "^3.2.3",
+    "graphql": "^16.5.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.1",

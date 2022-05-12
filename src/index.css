@@ -448,6 +448,21 @@ header {
   width: 100%;
 }
 
+.customer-reviews__container {
+  background-color: #B1CCB1;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.customer-review {
+  padding: 20px 0;
+}
+
+.customer-review:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
 /* Cart */
 
 .cart {
