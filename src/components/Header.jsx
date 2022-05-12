@@ -21,7 +21,7 @@ const Header = () => {
                         <li><Link to="/settings">Settings</Link></li>
                         <li>
                             <Link to="/cart">Cart</Link>
-                            { cartUpdated && <span className="badge">!</span> }
+                            { cartUpdated && <span className="cart-alert-badge">!</span> }
                         </li>
                     </ul>
                 </nav>
@@ -29,6 +29,7 @@ const Header = () => {
                     <span className="bar"></span>
                     <span className="bar"></span>
                     <span className="bar"></span>
+                    { cartUpdated && <span className="cart-alert-badge--mobile">!</span> }
                 </div>
             </div>
         </header>
