@@ -19,10 +19,10 @@ const MobileMenu = () => {
                     <li><Link to="/settings" onClick={closeMobileMenu}>Settings</Link></li>
                     <li><Link to="/about" onClick={closeMobileMenu}>About</Link></li>
                     <li>
-                        <div className="mobile-menu-cart-link-container">
-                            <Link to="/cart" onClick={closeMobileMenu}>Cart</Link>
+                        <Link to="/cart" style={{position: "relative"}} onClick={closeMobileMenu}>
+                            Cart
                             { cartUpdated && <span className="cart-alert-badge--mobile-menu">!</span> }
-                        </div>
+                        </Link>
                     </li>
                 </ul>
             </nav>

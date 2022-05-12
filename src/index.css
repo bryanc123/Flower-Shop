@@ -104,10 +104,11 @@ header {
   background-color: red;
   border-radius: 50%;
   display: inline-block;
+  font-size: 0.5em;
   font-weight: bold;
   padding: 0px 10px;
   top: 0px;
-  right: 95px;
+  right: -30px;
   position: absolute;
 }
 
