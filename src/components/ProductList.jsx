@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 const ProductList = () => {
 
     const [products, setProducts] = useState(data);
-    const [sortBy, setSortBy] = useState({ label: "", value: "" });
+    const [sortBy, setSortBy] = useState({ label: "A-Z", value: "name" });
 
     const ratings = products.map(product => {
         let _ratings = ratingsData.find(ratedProduct => ratedProduct.name === product.name).ratings;
