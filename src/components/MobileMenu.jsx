@@ -16,7 +16,6 @@ const MobileMenu = () => {
                 <span className="mobile-menu-close" onClick={closeMobileMenu}>Close</span>
                 <ul>
                     <li><Link to="/" onClick={closeMobileMenu}>Products</Link></li>
-                    <li><Link to="/settings" onClick={closeMobileMenu}>Settings</Link></li>
                     <li><Link to="/about" onClick={closeMobileMenu}>About</Link></li>
                     <li>
                         <Link to="/cart" style={{position: "relative"}} onClick={closeMobileMenu}>

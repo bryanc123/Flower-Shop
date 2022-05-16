@@ -1,4 +1,5 @@
 import Header from './Header';
+import Subheader from './Subheader';
 import Footer from './Footer';
 import ProductList from './ProductList';
 import Product from './Product';
@@ -13,6 +14,7 @@ const Layout = () => {
         <>
             <MobileMenu />
             <Header />
+            <Subheader />
             <Routes>
                 <Route path="/" element={<ProductList />} />
                 <Route path="/product/:name" element={<Product />} />

@@ -18,7 +18,6 @@ const Header = () => {
                     <ul>
                         <li><Link to="/">Products</Link></li>
                         <li><Link to="/about">About</Link></li>
-                        <li><Link to="/settings">Settings</Link></li>
                         <li>
                             <Link to="/cart">Cart</Link>
                             { cartUpdated && <span className="cart-alert-badge">!</span> }

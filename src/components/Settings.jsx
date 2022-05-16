@@ -1,7 +1,20 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setShowRecommended } from '../features/settings/settingsSlice';
 
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 const Settings = () => {
+    const loggedIn = useSelector((state) => state.auth.loggedIn);
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        console.log(loggedIn);
+        if(!loggedIn) {
+            navigate("/");
+        }
+    }, [loggedIn]);
+
     const showRecommended = useSelector((state) => state.settings.showRecommended);
     const dispatch = useDispatch();
 
