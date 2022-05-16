@@ -482,12 +482,41 @@ header {
   min-height: 80vh;
 }
 
+.user-settings__container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  margin: 20px;
+  padding: 20px;
+  text-align: left;
+}
+
 .settings__container {
   background-color: white;
   font-size: 14px;
   margin: 20px;
   padding: 20px;
   text-align: left;
+}
+
+.settings__username {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.save-username-button {
+  background-color: #665366;;
+  border: none;
+  border-radius: 10px;
+  color: #FFE4E1;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+}
+.save-username-button:hover {
+  background-color: #857585;
+  cursor: pointer;
 }
 
 /* About */
@@ -720,6 +749,28 @@ footer {
     display: inline;
     font-size: 1rem;
     margin: 0 10px 20px 0;
+  }
+
+  /* Settings */
+
+  .user-settings__container {
+    align-items: center;
+    flex-direction: row;
+    font-size: 16px;
+    margin: 20px;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .settings__username {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  
+  .save-username-button {
+    border: none;
+    border-radius: 10px;
+    margin-left: 10px;
   }
 
   /* Cart */

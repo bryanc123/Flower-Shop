@@ -18,11 +18,19 @@ export const authSlice = createSlice({
         logout: (state) => {
             state.user = '';
             state.loggedIn = false;
+        },
+        setUsername: (state, action) => {
+            state.user = action.payload;
         }
     },
 });
 
-export const { setLoading, login, logout } = authSlice.actions;
+export const {
+    setLoading,
+    login,
+    logout,
+    setUsername
+} = authSlice.actions;
 
 export const loginAsync = (username) => (dispatch) => {
     dispatch(setLoading(true));
