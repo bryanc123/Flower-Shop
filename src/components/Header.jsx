@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
+import { FaCartPlus } from 'react-icons/fa';
+
 const Header = () => {
 
     const openMobileMenu = () => {
@@ -19,7 +21,7 @@ const Header = () => {
                         <li><Link to="/">Products</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li>
-                            <Link to="/cart">Cart</Link>
+                            <Link to="/cart"><FaCartPlus style={{fontSize: "24px", marginTop:"2px"}} /></Link>
                             { cartUpdated && <span className="cart-alert-badge">!</span> }
                         </li>
                     </ul>

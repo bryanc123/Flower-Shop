@@ -182,6 +182,7 @@ header {
 }
 
 .subheader__instruction {
+  color: #E7F7D7;
   display: none;
 }
 
@@ -243,8 +244,8 @@ header {
 
 .logout__button {
   background-color: #665366;
-  color: white;
   border: none;
+  color: white;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
@@ -263,8 +264,8 @@ header {
 }
 
 .products__intro {
-  font-size: 1.5rem;
-  margin-left: 20px;
+  font-size: 1rem;
+  margin: 20px 0 10px 20px;
   text-align: left;
 }
 
@@ -682,6 +683,7 @@ footer {
   
   .subheader__instruction {
     display: inline;
+    font-size: 14px;
     margin-left: 0;
   }
 
