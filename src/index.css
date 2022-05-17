@@ -258,6 +258,10 @@ header {
 
 /* Product List */
 
+.products {
+  min-height: 80vh;
+}
+
 .products__container {
   margin: 0 auto;
   max-width: 1300px;
@@ -338,6 +342,10 @@ header {
 }
 
 /* Single Product */
+
+.product {
+  min-height: 80vh;
+}
 
 .product__container {
   align-items: center;
@@ -530,6 +538,10 @@ header {
 }
 
 /* About */
+
+.about {
+  min-height: 80vh;
+}
 
 .about__container {
   margin: 20px auto;

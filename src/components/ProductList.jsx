@@ -13,8 +13,6 @@ const ProductList = () => {
     const [products, setProducts] = useState(data);
     const [sortBy, setSortBy] = useState({ label: "A-Z", value: "name" });
 
-    console.log(products);
-
     const ratings = products.map(product => {
         let _ratings = ratingsData.find(ratedProduct => ratedProduct.name === product.name).ratings;
 
@@ -37,7 +35,6 @@ const ProductList = () => {
                 return product.name.toLowerCase().includes(searchTerm);
             });
         });
-        setSortBy(sortBy);
     }, 500);
 
     useEffect(() => {
@@ -188,6 +185,7 @@ const ProductList = () => {
                 <div className="products__gallery">
                 {productContainers}
                 </div>
+                {!products.length && <p>Sorry, no products that match your query were found!</p>}
             </div>
         </section>
     );
