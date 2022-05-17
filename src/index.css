@@ -269,6 +269,16 @@ header {
   text-align: left;
 }
 
+.products__search-container {
+  margin: 20px;
+  text-align: left;
+}
+
+.products__search {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
 .products__sort {
   margin-left: 20px;
   text-align: left;

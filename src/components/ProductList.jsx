@@ -5,10 +5,15 @@ import Select from 'react-select';
 import { data, ratings as ratingsData } from '../data';
 import { useEffect } from 'react';
 
+import debounce from 'lodash.debounce';
+
 const ProductList = () => {
+    const [searchTerm, setSearchTerm] = useState('');
 
     const [products, setProducts] = useState(data);
     const [sortBy, setSortBy] = useState({ label: "A-Z", value: "name" });
+
+    console.log(products);
 
     const ratings = products.map(product => {
         let _ratings = ratingsData.find(ratedProduct => ratedProduct.name === product.name).ratings;
@@ -21,6 +26,23 @@ const ProductList = () => {
             numberOfRatings: _ratings.length
         };
     });
+
+    const onChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const debouncedSearch = debounce(() => {
+        setProducts(() => {
+            return data.filter(product => {
+                return product.name.toLowerCase().includes(searchTerm);
+            });
+        });
+        setSortBy(sortBy);
+    }, 500);
+
+    useEffect(() => {
+        debouncedSearch();
+    }, [searchTerm]);
 
     const sortProductsByName = (orderControl) => {
         setProducts(previousProducts => {
@@ -122,7 +144,7 @@ const ProductList = () => {
             default:
                 break;
         }
-    }, [sortBy]);
+    }, [products, sortBy]);
 
     const selectStyles = {
         container: (styles) => ({
@@ -143,6 +165,16 @@ const ProductList = () => {
         <section className="products">
             <div className="products__container">
                 <p className="products__intro">Choose from our fine selection of flowers</p>
+                <div className="products__search-container">
+                    <span>Search:</span>
+                    <input
+                        type="text"
+                        name="products-search"
+                        className="products__search"
+                        value={searchTerm}
+                        onChange={onChange}
+                    />
+                </div>
                 <div className="products__sort">
                     <span>Sort:</span>
                     <Select
