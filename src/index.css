@@ -266,6 +266,7 @@ header {
 .products__container {
   margin: 0 auto;
   max-width: 1300px;
+  padding: 20px;
 }
 
 .products__intro {
@@ -296,7 +297,6 @@ header {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  padding: 20px;
 }
 
 .product__card {

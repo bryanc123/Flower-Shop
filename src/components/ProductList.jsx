@@ -32,7 +32,7 @@ const ProductList = () => {
     const debouncedSearch = debounce(() => {
         setProducts(() => {
             return data.filter(product => {
-                return product.name.toLowerCase().includes(searchTerm);
+                return product.name.includes(searchTerm.trim().toLowerCase());
             });
         });
     }, 500);
