@@ -136,15 +136,19 @@ const Product = () => {
     recommendedProducts = recommendedProducts.map(product => {
         return (
             <div className="recommended-product" key={product.name}>
-                <Link to={`/product/${product.name}`} onClick={() => resetForm()}>
-                    <img src={`images/${product.name}.jpg`} alt={product.description} className="recommended-product__image" />
-                </Link>
-                <Link to={`/product/${product.name}`}>
-                    <h3>{product.description}</h3>
-                </Link>
-                <p>Price: ${product.price}</p>
-                <p>Rating: {product.rating} / 5 ({product.numberOfRatings} ratings)</p>
-                <p>In Stock: {product.quantity}</p>
+                <div className="recommended-product__image-container">
+                    <Link to={`/product/${product.name}`} onClick={() => resetForm()}>
+                        <img src={`images/${product.name}.jpg`} alt={product.description} className="recommended-product__image" />
+                    </Link>
+                </div>
+                <div className="recommended-product__details-container">
+                    <Link to={`/product/${product.name}`}>
+                        <h3>{product.description}</h3>
+                    </Link>
+                    <p>Price: ${product.price}</p>
+                    <p>Rating: {product.rating} / 5 ({product.numberOfRatings} ratings)</p>
+                    <p>In Stock: {product.quantity}</p>
+                </div>
             </div>
         )
     });

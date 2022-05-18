@@ -105,15 +105,19 @@ const ProductList = () => {
 
         return (
             <div className="product__card" key={product.name}>
-                <Link to={`/product/${product.name}`}>
-                    <img src={product.image} alt={product.description} className="product__card--image" />
-                </Link>
-                <Link to={`/product/${product.name}`}>
-                    <h3>{product.description}</h3>
-                </Link>
-                <p>Price: ${product.price}</p>
-                <p>In Stock: {product.quantity}</p>
-                <p>Rating: {productRating.rating} / 5 ({productRating.numberOfRatings} ratings)</p>
+                <div className="product__card-image-container">
+                    <Link to={`/product/${product.name}`}>
+                        <img src={product.image} alt={product.description} className="product__card--image" />
+                    </Link>
+                </div>
+                <div className="product__card-details-container">
+                    <Link to={`/product/${product.name}`}>
+                        <h3>{product.description}</h3>
+                    </Link>
+                    <p>Price: ${product.price}</p>
+                    <p>In Stock: {product.quantity}</p>
+                    <p>Rating: {productRating.rating} / 5 ({productRating.numberOfRatings} ratings)</p>
+                </div>
             </div>
         );
     });

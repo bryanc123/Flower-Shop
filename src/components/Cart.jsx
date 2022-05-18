@@ -43,7 +43,9 @@ const Cart = () => {
         <section className="cart">
             <div className="cart__container">
                 <h2>Items in Your Cart</h2>
-                {cartItems}
+                <div className="cart__items-container">
+                    {cartItems}
+                </div>
                 <div className="cart__total">
                     <span>Total</span>
                     <span>${total}</span>
