@@ -162,25 +162,29 @@ const ProductList = () => {
         <section className="products">
             <div className="products__container">
                 <p className="products__intro">Choose from our fine selection of flowers</p>
-                <div className="products__search-container">
-                    <span>Search:</span>
-                    <input
-                        type="text"
-                        name="products-search"
-                        className="products__search"
-                        value={searchTerm}
-                        onChange={onChange}
-                    />
-                </div>
-                <div className="products__sort">
-                    <span>Sort:</span>
-                    <Select
-                        defaultValue={sortBy}
-                        isSearchable={false}
-                        onChange={setSortBy}
-                        options={sortOptions}
-                        styles={selectStyles}
-                    />
+                <div className="products__search-and-sort-container">
+                    <div className="products__search-container">
+                        <span>Search:</span>
+                        <input
+                            type="text"
+                            name="products-search"
+                            className="products__search"
+                            value={searchTerm}
+                            onChange={onChange}
+                        />
+                    </div>
+                    <div className="products__sort">
+                        <span>Sort:</span>
+                        <div style={{display:"inline-block", marginLeft: "10px"}}>
+                            <Select
+                                defaultValue={sortBy}
+                                isSearchable={false}
+                                onChange={setSortBy}
+                                options={sortOptions}
+                                styles={selectStyles}
+                            />
+                        </div>
+                    </div>
                 </div>
                 <div className="products__gallery">
                 {productContainers}
