@@ -165,7 +165,7 @@ const ProductList = () => {
     return (
         <section className="products">
             <div className="products__container">
-                <p className="products__intro">Choose from our fine selection of flowers</p>
+                <h2 class="products__intro">All Homegrown Flowers</h2>
                 <div className="products__search-and-sort-container">
                     <div className="products__search-container">
                         <span>Search:</span>
@@ -191,7 +191,7 @@ const ProductList = () => {
                     </div>
                 </div>
                 <div className="products__gallery">
-                {productContainers}
+                    {productContainers}
                 </div>
                 {!products.length && <p>Sorry, no products that match your query were found!</p>}
             </div>
