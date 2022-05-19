@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Flower-Shop/static/css/main.29147cfb.css",
-    "main.js": "/Flower-Shop/static/js/main.539cf13b.js",
+    "main.css": "/Flower-Shop/static/css/main.4c1bdbb5.css",
+    "main.js": "/Flower-Shop/static/js/main.84e43e3c.js",
     "index.html": "/Flower-Shop/index.html",
-    "main.29147cfb.css.map": "/Flower-Shop/static/css/main.29147cfb.css.map",
-    "main.539cf13b.js.map": "/Flower-Shop/static/js/main.539cf13b.js.map"
+    "main.4c1bdbb5.css.map": "/Flower-Shop/static/css/main.4c1bdbb5.css.map",
+    "main.84e43e3c.js.map": "/Flower-Shop/static/js/main.84e43e3c.js.map"
   },
   "entrypoints": [
-    "static/css/main.29147cfb.css",
-    "static/js/main.539cf13b.js"
+    "static/css/main.4c1bdbb5.css",
+    "static/js/main.84e43e3c.js"
   ]
 }
