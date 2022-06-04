@@ -8,7 +8,6 @@ export const cartSlice = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
-            console.log(action.payload.price);
             state.items.push(action.payload);
         },
         updateProductQuantity: (state, action) => {

@@ -328,6 +328,30 @@ header {
   min-height: 80vh;
 }
 
+.product__message-container {
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: left;
+}
+
+.product__error-message {
+  background-color: #FFDBDB;
+  border-left: 10px solid red;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 20px;
+  padding: 10px 20px;
+}
+
+.product__added-message {
+  background-color: #CFF0C0;
+  border-left: 10px solid green;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 20px 20px 0 20px;
+  padding: 10px 20px;
+}
+
 .product__container {
   align-items: center;
   display: flex;
@@ -458,22 +482,6 @@ header {
 .product__add:hover {
   background-color: #4EA24E;
   cursor: pointer;
-}
-
-.product__error-message {
-  background-color: #FFDBDB;
-  border-left: 5px solid red;
-  display: inline-block;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-}
-
-.product__added-message {
-  background-color: #DFF5D5;
-  border-left: 5px solid green;
-  display: inline-block;
-  font-size: 1.2rem;
-  padding: 10px 20px;
 }
 
 /* Settings */

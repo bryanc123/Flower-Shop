@@ -78,7 +78,10 @@ const Product = () => {
         setProductAdded(false);
         setError("");
 
+        window.scrollTo(0, 0);
+
         let inputError = validateQuantity();
+        console.log(parseInt(quantity));
         if(inputError) {
             setError(inputError);
             return;
@@ -155,6 +158,10 @@ const Product = () => {
 
     return (
         <section className="product">
+            <div className="product__message-container">
+                {error && <div className="product__error-message">{error}</div>}
+                {productAdded && <div className="product__added-message">Product added to cart</div>}
+            </div>
             <div className="product__container">
                 <div className="product__purchase-container">
                     <div className="product__images-container">
@@ -178,8 +185,6 @@ const Product = () => {
                         <input type="text" value={quantity} onChange={onChange} className="product__quantity"></input>
                         <button className="product__increment" onClick={onIncrement}>+</button>
                         <button className="product__add" onClick={add}>Add to Cart</button>
-                        {error && <div className="product__error-message">{error}</div>}
-                        {productAdded && <div className="product__added-message">Product added to cart</div>}
                     </div>
                 </div>
                 {
