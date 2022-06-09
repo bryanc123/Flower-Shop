@@ -75,13 +75,16 @@ const Product = () => {
     }
 
     const add = () => {
+        quantity = quantity.replace(/\D/g, "");
+        setQuantity(quantity.replace(/\D/g, ""));
+
         setProductAdded(false);
         setError("");
 
         window.scrollTo(0, 0);
 
         let inputError = validateQuantity();
-        console.log(parseInt(quantity));
+
         if(inputError) {
             setError(inputError);
             return;
