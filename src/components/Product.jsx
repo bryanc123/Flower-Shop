@@ -75,8 +75,8 @@ const Product = () => {
     }
 
     const add = () => {
-        quantity = quantity.replace(/\D/g, "");
-        setQuantity(quantity.replace(/\D/g, ""));
+        quantity = parseInt(quantity.toString().replace(/\D/g, ""));
+        setQuantity(quantity);
 
         setProductAdded(false);
         setError("");
