@@ -35,6 +35,7 @@ const ProductList = () => {
                 return product.name.includes(searchTerm.trim().toLowerCase());
             });
         });
+        sortProducts();
     }, 500);
 
     useEffect(() => {
@@ -122,7 +123,7 @@ const ProductList = () => {
         );
     });
 
-    useEffect(() => {
+    const sortProducts = () => {
         switch(sortBy.value) {
             case "name":
                 sortProductsByName(1);
@@ -145,7 +146,11 @@ const ProductList = () => {
             default:
                 break;
         }
-    }, [products, sortBy]);
+    }
+
+    useEffect(() => {
+        sortProducts();
+    }, [sortBy]);
 
     const selectStyles = {
         container: (styles) => ({
@@ -165,7 +170,7 @@ const ProductList = () => {
     return (
         <section className="products">
             <div className="products__container">
-                <h2 class="products__intro">All Homegrown Flowers</h2>
+                <h2 className="products__intro">All Homegrown Flowers</h2>
                 <div className="products__search-and-sort-container">
                     <div className="products__search-container">
                         <span>Search:</span>
