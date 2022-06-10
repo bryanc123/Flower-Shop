@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const MobileMenu = () => {
-
     const cartUpdated = useSelector((state) => state.cart.updated);
 
     const closeMobileMenu = () => {
