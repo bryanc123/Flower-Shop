@@ -1,10 +1,9 @@
-import { render, screen } from "../test-utils";
+import { render, screen, waitFor } from "../test-utils";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 
 import ProductList from "../components/ProductList";
 import { HashRouter as Router } from 'react-router-dom';
-import { waitFor } from "@testing-library/react";
 
 
 global.scrollTo = jest.fn();
