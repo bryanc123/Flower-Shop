@@ -4,22 +4,23 @@
   "private": true,
   "homepage": "https://bryanc123.github.io/Flower-Shop",
   "dependencies": {
-    "@apollo/client": "^3.6.6",
-    "@reduxjs/toolkit": "^1.8.2",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.2.0",
-    "gh-pages": "^4.0.0",
-    "graphql": "^16.5.0",
+    "@apollo/client": "^3.7.16",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "gh-pages": "^5.0.0",
+    "graphql": "^16.7.1",
     "lodash.debounce": "^4.0.8",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-icons": "^4.4.0",
-    "react-redux": "^8.0.2",
-    "react-router-dom": "^6.3.0",
+    "msw": "^1.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.14.0",
     "react-scripts": "^5.0.1",
-    "react-select": "^5.3.2",
-    "web-vitals": "^2.1.4"
+    "react-select": "^5.7.3",
+    "web-vitals": "^3.3.2"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -46,8 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "msw": "^0.42.1"
   }
 }
