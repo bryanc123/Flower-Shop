@@ -20,17 +20,23 @@ const Header = () => {
                     <ul>
                         <li><Link to="/">Products</Link></li>
                         <li><Link to="/about">About</Link></li>
+                        <li><Link to="/login">Log In</Link></li>
                         <li>
                             <Link to="/cart"><FaCartPlus style={{fontSize: "24px", marginTop:"2px"}} /></Link>
                             { cartUpdated && <span className="cart-alert-badge">!</span> }
                         </li>
                     </ul>
                 </nav>
-                <div className="hamburger-menu-icon" onClick={openMobileMenu}>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    { cartUpdated && <span className="cart-alert-badge--mobile">!</span> }
+                <div className="mobile-header-menu">
+                    <div className="mobile-header-cart">
+                        <Link to="/cart"><FaCartPlus style={{fontSize: "24px"}} /></Link>
+                        { cartUpdated && <span className="cart-alert-badge--mobile">!</span> }
+                    </div>
+                    <div className="hamburger-menu-icon" onClick={openMobileMenu}>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                    </div>
                 </div>
             </div>
         </header>
