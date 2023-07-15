@@ -46,12 +46,12 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 1300px;
-  padding: 20px;
+  max-width: 1400px;
+  padding: 10px 20px;
 }
 .header-container h1 {
   font-family: 'Dancing Script';
-  font-size: 3rem;
+  font-size: 1.8rem;
   margin: 0;
 }
 .header-container a {
@@ -112,6 +112,12 @@ header {
   position: absolute;
 }
 
+.mobile-header-menu {
+  border: 1px solid yellow;
+  align-content: center;
+  display: flex;
+}
+
 /* Mobile Menu */
 
 .hamburger-menu-icon:hover {
@@ -121,9 +127,9 @@ header {
 .bar {
   background-color: white;
   display: block;
-  margin-bottom: 5px;
-  width: 30px;
-  height: 4px;
+  margin-bottom: 3px;
+  width: 20px;
+  height: 3px;
 }
 
 .mobile-menu {
@@ -599,6 +605,32 @@ header {
   border-bottom: 1px solid black;
 }
 
+/* Login */
+
+.login {
+  max-width: 1400px;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.login-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.login-form > * {
+  border: 1px solid black;
+  padding-bottom: 20px;
+}
+
+.login-button-container {
+  grid-column: 1 / span 2;
+}
+
+
+
 /* Cart */
 
 .cart {
@@ -709,6 +741,10 @@ footer {
   }
 
   .hamburger-menu-icon {
+    display: none;
+  }
+
+  .mobile-header-cart {
     display: none;
   }
 
